@@ -19,7 +19,7 @@ const postData = async (data) => {
   });
 };
 
-const getAll = async (user) => {
+const getAllByUser = async (user) => {
   return new Promise(async (resolve, reject) => {
     try {
       const { results } = await nodeData.filter({
@@ -37,4 +37,18 @@ const getAll = async (user) => {
   });
 };
 
-module.exports = { postData, getAll };
+const getAll = () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const { results: nodeMetaData } = await nodeData.list();
+      const allData = await Promise.all(
+        nodeMetaData.map(async ({ key }) => (await nodeData.get(key)).props)
+      );
+      resolve(allData);
+    } catch (err) {
+      reject(err);
+    }
+  });
+};
+
+module.exports = { postData, getAllByUser, getAll };

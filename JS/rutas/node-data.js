@@ -2,10 +2,21 @@ const express = require("express");
 const router = express.Router();
 const nodeData = require("../servicios/node-data");
 
-//GET default
+//GET by user
+router.get("/by-user", async function (req, res, next) {
+  try {
+    result = await nodeData.getAllByUser(req.usuario);
+    res.json(result);
+  } catch (error) {
+    res.status(500).send(error);
+    next(error);
+  }
+});
+
+//get all by default
 router.get("/", async function (req, res, next) {
   try {
-    result = await nodeData.getAll(req.usuario);
+    result = await nodeData.getAll();
     res.json(result);
   } catch (error) {
     res.status(500).send(error);
