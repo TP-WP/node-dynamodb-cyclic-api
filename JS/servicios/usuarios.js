@@ -34,8 +34,11 @@ const getSingle = (userId) => {
 const getAll = () => {
   return new Promise(async (resolve, reject) => {
     try {
-      const all_users = await usuarios.list();
-      resolve(all_users);
+      const { results: usersMetaData } = await usuarios.list();
+      const allUsers = await Promise.all(
+        usersMetaData.map(async ({ key }) => (await usuarios.get(key)).props)
+      );
+      resolve(allUsers);
     } catch (err) {
       reject(err);
     }
