@@ -3,7 +3,7 @@ const cors = require("cors"); //para evitar problemas con la CORS policy
 const usuariosRouter = require("./JS/rutas/usuarios");
 const nodeDataRouter = require("./JS/rutas/node-data");
 
-const PORT = process.env.PORT || 3050;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 

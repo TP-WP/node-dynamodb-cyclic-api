@@ -1,21 +1,16 @@
-npm start para iniciar servidor de api  
-por defecto, acceder a localhost:3050 para acceder a api
+API REST for cyclic deploy
 
-MySQL: para crear y configurar base de datos  
-mysql -u username -p userpass CREATE DATABASE testDB  
-mysql -u username -p userpass testDB < ./mysql/testDB.sql
-
-configurar .env con credenciales para su base de datos  
-DB_USER = 'username' //cambiar por usuario de mysql  
-DB_HOST = 'localhost'  
-DB_PASSWORD = 'userpass' //cambiar por clave de usuario de mysql  
-DB_NAME = 'testDB'
+configurar variables de entorno en panel de aplicacion <variables>:
+CYCLIC_DB = busy-red-sturgeon-gearCyclicDB
 
 Uso de la API:  
 / - ruta por defecto - mensaje de bienvenida  
 /usuarios - unica ruta ademas de la por defecto  
 &ensp;-GET: sin parametros. Devuelve lista completa de usuarios sin ordenar sin paginacion  
-&ensp;-POST: crea un nuevo usuario. la id se actualiza automaticamente. Parametros:  
+&ensp;-GET /single: get user by id
+&ensp;&ensp;-@userId  
+&ensp;-POST: crea un nuevo usuario. Parametros:  
+&ensp;&ensp;-@id  
 &ensp;&ensp;-@nombre  
 &ensp;&ensp;-@edad  
 &ensp;&ensp;-@rut  
