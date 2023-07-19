@@ -32,9 +32,9 @@ const getAllByUser = async (user) => {
       );
       */
 
-      const { props: data } = results[0];
+      //const { props: data } = results[0];
 
-      resolve(data);
+      resolve(results);
     } catch (err) {
       reject(err);
     }
