@@ -22,8 +22,15 @@ const postData = async (data) => {
 const getAll = async (user) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const data = await db.collection("nodeData").list();
-      resolve(data);
+      const { results } = await nodeData.filter({
+        usuario: user,
+      });
+      /*
+      const allData = await Promise.all(
+        nodeMetaData.map(async ({ key }) => (await nodeData.get(key)).props)
+      );
+      */
+      resolve(results);
     } catch (err) {
       reject(err);
     }

@@ -5,7 +5,7 @@ const usuarios = db.collection("usuarios");
 const creaUsuario = (usuario) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const user = await usuarios.set(usuario.id, {
+      await usuarios.set(usuario.id, {
         nombre: usuario.nombre,
         edad: usuario.edad,
         rut: usuario.rut,
@@ -22,7 +22,7 @@ const creaUsuario = (usuario) => {
 const getSingle = (userId) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const item = await db.collection("usuarios").get(userId);
+      const item = await usuarios.get(userId);
       resolve(item);
     } catch (err) {
       reject(err);

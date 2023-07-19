@@ -5,7 +5,7 @@ const nodeData = require("../servicios/node-data");
 //GET default
 router.get("/", async function (req, res, next) {
   try {
-    result = await nodeData.getAll();
+    result = await nodeData.getAll(req.usuario);
     res.json(result);
   } catch (error) {
     res.status(500).send(error);
