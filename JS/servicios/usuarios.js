@@ -34,7 +34,7 @@ const getSingle = (userId) => {
 const getAll = () => {
   return new Promise(async (resolve, reject) => {
     try {
-      const all_users = await db.collection("usuarios").list();
+      const all_users = await db.query({ collection: "usuarios" });
       resolve(all_users);
     } catch (err) {
       reject(err);
