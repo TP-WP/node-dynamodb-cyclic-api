@@ -5,7 +5,7 @@ const nodeData = require("../servicios/node-data");
 //GET by user
 router.get("/by-user", async function (req, res, next) {
   try {
-    result = await nodeData.getAllByUser(req.usuario);
+    result = await nodeData.getAllByUser(req.query.usuario);
     res.json(result);
   } catch (error) {
     res.status(500).send(error);
