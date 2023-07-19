@@ -5,12 +5,13 @@ const nodeData = db.collection("nodeData");
 const postData = async (data) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const id = data.usuario + data.time;
+      const hora = Date.now();
+      const id = data.usuario + ", " + hora;
       await nodeData.set(id, {
         usuario: data.usuario,
         t_camas: data.t_camas,
         h_ambiente: data.h_ambiente,
-        time: data.time,
+        time: hora,
       });
       resolve("data posted");
     } catch (err) {
