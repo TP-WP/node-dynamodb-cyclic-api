@@ -2,13 +2,6 @@ const express = require("express");
 const router = express.Router();
 const usuarios = require("../servicios/usuarios");
 
-router.get("/", async function (req, res, next) {
-  let text = `
-  GET /single/id=x to get single user
-  POST /id=x&nombre=yisus&edad=29&rut=1&telefono=1&direccion=tusca
-  `;
-});
-
 //GET single
 router.get("/single", async function (req, res, next) {
   try {
@@ -25,7 +18,7 @@ router.get("/single", async function (req, res, next) {
 router.get("/", async function (req, res, next) {
   try {
     result = await usuarios.getAll();
-    res.json(result);
+    res.status(200).json(result);
   } catch (error) {
     res.status(500).send(error);
     next(error);
