@@ -10,7 +10,6 @@ const postData = async (data) => {
         usuario: data.usuario,
         t_camas: data.t_camas,
         h_ambiente: data.h_ambiente,
-        time: data.time,
       });
       resolve("data posted");
     } catch (err) {
