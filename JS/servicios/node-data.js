@@ -25,12 +25,16 @@ const getAllByUser = async (user) => {
       const { results } = await nodeData.filter({
         usuario: user,
       });
+      console.log("results: ", results);
       /*
       const allData = await Promise.all(
         nodeMetaData.map(async ({ key }) => (await nodeData.get(key)).props)
       );
       */
-      resolve(results);
+
+      const { props: data } = results[0];
+
+      resolve(data);
     } catch (err) {
       reject(err);
     }
