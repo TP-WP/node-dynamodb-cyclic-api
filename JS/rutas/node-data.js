@@ -27,7 +27,7 @@ router.get("/", async function (req, res, next) {
 //POST data
 router.post("/", async function (req, res, next) {
   try {
-    result = await nodeData.postData(req.query);
+    result = await nodeData.postData(req.payload);
     res.send(result);
   } catch (error) {
     res.status(500).send(error);
