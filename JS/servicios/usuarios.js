@@ -6,11 +6,11 @@ const creaUsuario = (usuario) => {
   return new Promise(async (resolve, reject) => {
     try {
       await usuarios.set(usuario.id, {
-        nombre: usuario.nombre,
-        edad: usuario.edad,
-        rut: usuario.rut,
-        telefono: usuario.telefono,
-        direccion: usuario.direccion,
+        "nombre": usuario.nombre,
+        "edad": usuario.edad,
+        "rut": usuario.rut,
+        "telefono": usuario.telefono,
+        "direccion": usuario.direccion,
       });
       resolve("usuario creado");
     } catch (err) {
